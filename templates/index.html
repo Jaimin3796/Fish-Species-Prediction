@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Species Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🐟 Fish Species Prediction 🐟</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label>Weight (g)</label>
+                <input type="number" step="any" name="Weight" placeholder="Enter Weight">
+            </div>
+            <div class="form-group">
+                <label>Length 1 (cm)</label>
+                <input type="number" step="any" name="Length1" placeholder="Enter Length1">
+            </div>
+            <div class="form-group">
+                <label>Length 2 (cm)</label>
+                <input type="number" step="any" name="Length2" placeholder="Enter Length2">
+            </div>
+            <div class="form-group">
+                <label>Length 3 (cm)</label>
+                <input type="number" step="any" name="Length3" placeholder="Enter Length3">
+            </div>
+            <div class="form-group">
+                <label>Height (cm)</label>
+                <input type="number" step="any" name="Height" placeholder="Enter Height">
+            </div>
+            <div class="form-group">
+                <label>Width (cm)</label>
+                <input type="number" step="any" name="Width" placeholder="Enter Width">
+            </div>
+            <button type="submit">🎯 Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <div class="result">
+                {{ prediction_text }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
